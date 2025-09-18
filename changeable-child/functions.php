@@ -1,7 +1,7 @@
 <?php
 /**
  * Theme: Changeable (child)
- * Purpose: setup, helpers, redirects, and Solutions Hub shortcode
+ * Purpose: setup, fonts, Portfolio CPT, redirects, and Solutions Hub shortcode
  */
 
 if ( ! defined('ABSPATH') ) { exit; }
@@ -14,19 +14,69 @@ add_action('after_setup_theme', function () {
   add_theme_support('align-wide');
   add_theme_support('responsive-embeds');
   add_theme_support('editor-styles');
-  add_editor_style('styles/blocks.css');
+
+  // Load editor styles (so the block editor uses your font + spacing)
+  add_editor_style('assets/editor.css');
 });
 
 /**
- * Register Block Pattern Category
+ * Front-end fonts (uses your existing variable Space Grotesk files & CSS)
+ * File already in repo: /assets/fonts/space-grotesk/space-grotesk.css
+ */
+add_action('wp_enqueue_scripts', function () {
+  $css_path = get_stylesheet_directory() . '/assets/fonts/space-grotesk/space-grotesk.css';
+  $css_uri  = get_stylesheet_directory_uri() . '/assets/fonts/space-grotesk/space-grotesk.css';
+
+  // Version with filemtime so browsers pick up changes immediately
+  $ver = file_exists($css_path) ? filemtime($css_path) : null;
+
+  wp_enqueue_style(
+    'changeable-space-grotesk',
+    $css_uri,
+    [],
+    $ver
+  );
+}, 5);
+
+/**
+ * Portfolio Custom Post Type
+ * Makes "Portfolio" appear in WP-Admin sidebar.
  */
 add_action('init', function () {
-  if ( function_exists('register_block_pattern_category') ) {
-    register_block_pattern_category(
-      'changeable',
-      ['label' => __('Changeable', 'changeable')]
-    );
-  }
+  $labels = [
+    'name'               => __('Portfolio', 'changeable'),
+    'singular_name'      => __('Case Study', 'changeable'),
+    'menu_name'          => __('Portfolio', 'changeable'),
+    'name_admin_bar'     => __('Case Study', 'changeable'),
+    'add_new'            => __('Add New', 'changeable'),
+    'add_new_item'       => __('Add New Case Study', 'changeable'),
+    'edit_item'          => __('Edit Case Study', 'changeable'),
+    'new_item'           => __('New Case Study', 'changeable'),
+    'view_item'          => __('View Case Study', 'changeable'),
+    'view_items'         => __('View Portfolio', 'changeable'),
+    'search_items'       => __('Search Portfolio', 'changeable'),
+    'not_found'          => __('No case studies found.', 'changeable'),
+    'not_found_in_trash' => __('No case studies found in Trash.', 'changeable'),
+    'all_items'          => __('All Case Studies', 'changeable'),
+  ];
+
+  register_post_type('portfolio', [
+    'labels'             => $labels,
+    'public'             => true,
+    'show_in_menu'       => true,
+    'show_in_rest'       => true,              // Gutenberg compatible
+    'menu_position'      => 21,
+    'menu_icon'          => 'dashicons-portfolio',
+    'has_archive'        => true,              // /portfolio/
+    'rewrite'            => ['slug' => 'portfolio'],
+    'supports'           => [
+      'title',
+      'editor',
+      'excerpt',
+      'thumbnail',
+      'revisions'
+    ]
+  ]);
 });
 
 /**
@@ -53,8 +103,8 @@ add_action('template_redirect', function () {
 
 /**
  * Solutions Hub shortcode
- * Usage: [changeable_solutions_grid columns="3" limit="12"]
- * Pulls child pages under the parent page: /solutions/
+ * Usage in pages/templates: [changeable_solutions_grid columns="3" limit="12"]
+ * Pulls child pages under the parent page /solutions/
  */
 function changeable_render_solutions_grid($atts = []) {
   $atts = shortcode_atts([
