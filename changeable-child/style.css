@@ -5,3 +5,9 @@
  Description:  Lightweight block library child theme for Changeable (parent: Twenty Twenty-Five)
  Author:       Steve Wilson
 */
+
+/* Font-weight presets for variable Space Grotesk */
+.is-style-weight-300 { font-weight: 300 !important; }
+.is-style-weight-400 { font-weight: 400 !important; }
+.is-style-weight-500 { font-weight: 500 !important; }
+.is-style-weight-700 { font-weight: 700 !important; }
