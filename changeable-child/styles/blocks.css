@@ -34,3 +34,13 @@
 
 <!-- wp:template-part {"slug":"cta-free-discovery"} /-->
 <!-- wp:template-part {"slug":"footer","area":"footer"} /-->
+
+  /* Hero image styling */
+.chg-hero-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  display: block;
+  background: #ddd;
+}
+
