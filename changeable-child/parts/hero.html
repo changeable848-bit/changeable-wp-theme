@@ -1,19 +1,19 @@
-<!-- Hero: two-column layout -->
+<!-- Hero: clean two-column block markup the editor will accept -->
 <!-- wp:group {"className":"chg-hero","layout":{"type":"constrained","contentSize":"1140px"},"style":{"spacing":{"padding":{"top":"5rem","bottom":"3rem"}}}} -->
 <div class="wp-block-group chg-hero" style="padding-top:5rem;padding-bottom:3rem">
 
-  <!-- wp:columns {"className":"chg-hero-columns","verticalAlignment":"center"} -->
-  <div class="wp-block-columns chg-hero-columns are-vertically-aligned-center">
+  <!-- wp:columns {"verticalAlignment":"center"} -->
+  <div class="wp-block-columns are-vertically-aligned-center">
 
-    <!-- LEFT (text panel) -->
-    <!-- wp:column {"className":"chg-hero-left is-vertically-aligned-center"} -->
-    <div class="wp-block-column chg-hero-left is-vertically-aligned-center">
-      <!-- wp:group {"className":"chg-hero-left-inner","style":{"color":{"background":"#f7d2ca"},"border":{"radius":"24px"},"spacing":{"padding":{"top":"2rem","right":"1.5rem","bottom":"2rem","left":"1.5rem"}}},"layout":{"type":"constrained"}} -->
-      <div class="wp-block-group chg-hero-left-inner" style="border-radius:24px;background-color:#f7d2ca;padding-top:2rem;padding-right:1.5rem;padding-bottom:2rem;padding-left:1.5rem">
+    <!-- LEFT -->
+    <!-- wp:column {"verticalAlignment":"center"} -->
+    <div class="wp-block-column is-vertically-aligned-center">
+      <!-- wp:group {"style":{"color":{"background":"#f7d2ca"},"border":{"radius":"24px"},"spacing":{"padding":{"top":"2rem","right":"1.5rem","bottom":"2rem","left":"1.5rem"}}},"layout":{"type":"constrained"}} -->
+      <div class="wp-block-group" style="border-radius:24px;background-color:#f7d2ca;padding-top:2rem;padding-right:1.5rem;padding-bottom:2rem;padding-left:1.5rem">
 
         <!-- wp:heading {"level":1,"style":{"typography":{"fontSize":"clamp(2.2rem,6vw,3.4rem)","lineHeight":"1.08","fontWeight":"700"},"spacing":{"margin":{"bottom":"0.5rem"}}}} -->
         <h1 style="font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.08;font-weight:700;margin-bottom:0.5rem">
-          <span class="chg-hero-ai">Ai</span> Agency
+          <span style="color:#F97316">Ai</span> Agency
         </h1>
         <!-- /wp:heading -->
 
@@ -21,7 +21,7 @@
         <p class="has-charcoal-color has-text-color" style="font-size:1.05rem;line-height:1.5;margin-bottom:1.2rem">Assisting business to successfully transform and thrive in the AI era. Simple, practical, and without disruption.</p>
         <!-- /wp:paragraph -->
 
-        <!-- wp:buttons {"layout":{"type":"flex"},"style":{"spacing":{"blockGap":"0.75rem"}}} -->
+        <!-- wp:buttons {"style":{"spacing":{"blockGap":"0.75rem"}}} -->
         <div class="wp-block-buttons">
           <!-- wp:button {"backgroundColor":"accent","style":{"border":{"radius":"999px"},"spacing":{"padding":{"top":"0.85rem","right":"1.25rem","bottom":"0.85rem","left":"1.25rem"}},"typography":{"fontWeight":"700"}}} -->
           <div class="wp-block-button"><a class="wp-block-button__link has-accent-background-color has-background wp-element-button" href="/contact/">Free Discovery Workshop</a></div>
@@ -38,11 +38,13 @@
     </div>
     <!-- /wp:column -->
 
-    <!-- RIGHT (image only for now) -->
-    <!-- wp:column {"className":"chg-hero-right is-vertically-aligned-center"} -->
-    <div class="wp-block-column chg-hero-right is-vertically-aligned-center">
-      <!-- wp:image {"sizeSlug":"large","linkDestination":"none","className":"chg-hero-photo"} -->
-      <figure class="wp-block-image size-large chg-hero-photo"><img src="/wp-content/themes/changeable-child/assets/screenshot.png" alt="Hero placeholder"/></figure>
+    <!-- RIGHT -->
+    <!-- wp:column {"verticalAlignment":"center"} -->
+    <div class="wp-block-column is-vertically-aligned-center">
+      <!-- wp:image {"sizeSlug":"large","linkDestination":"none"} -->
+      <figure class="wp-block-image size-large">
+        <img src="" alt="Hero image" />
+      </figure>
       <!-- /wp:image -->
     </div>
     <!-- /wp:column -->
