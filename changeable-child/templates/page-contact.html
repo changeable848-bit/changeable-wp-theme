@@ -1,0 +1,41 @@
+<!--
+Template Name: Contact Page
+-->
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"3rem","bottom":"2rem"}}}} -->
+<div class="wp-block-group" style="padding-top:3rem;padding-bottom:2rem">
+  <!-- wp:heading {"level":1} --><h1>Book a Free Discovery Workshop</h1><!-- /wp:heading -->
+  <!-- wp:paragraph --><p>Tell us about your organisation and what you want to achieve. We’ll reply within one business day.</p><!-- /wp:paragraph -->
+
+  <!-- wp:columns -->
+  <div class="wp-block-columns">
+    <!-- wp:column -->
+    <div class="wp-block-column">
+      <!-- Replace this with your preferred form block/shortcode -->
+      <!-- wp:shortcode -->[contact-form-7 id="contact" title="Contact"]<!-- /wp:shortcode -->
+    </div>
+    <!-- /wp:column -->
+
+    <!-- wp:column -->
+    <div class="wp-block-column">
+      <!-- wp:group {"style":{"color":{"background":"var(--wp--preset--color--cloud)"},"border":{"radius":"var(--wp--custom--radius--lg)"},"spacing":{"padding":{"top":"1rem","right":"1rem","bottom":"1rem","left":"1rem"}}}} -->
+      <div class="wp-block-group" style="border-radius:var(--wp--custom--radius--lg);background-color:var(--wp--preset--color--cloud);padding-top:1rem;padding-right:1rem;padding-bottom:1rem;padding-left:1rem">
+        <!-- wp:heading {"level":3} --><h3>What we’ll cover</h3><!-- /wp:heading -->
+        <!-- wp:list -->
+        <ul>
+          <li>Current state &amp; constraints</li>
+          <li>High-value use-cases &amp; quick wins</li>
+          <li>Risks, governance &amp; compliance</li>
+          <li>Next steps with timeline</li>
+        </ul>
+        <!-- /wp:list -->
+      </div>
+      <!-- /wp:group -->
+    </div>
+    <!-- /wp:column -->
+  </div>
+  <!-- /wp:columns -->
+</div>
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
