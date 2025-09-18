@@ -21,17 +21,37 @@
     },
     "spacing": {
       "spacingScale": { "steps": 8 },
-      "units": [ "px", "em", "rem", "vw", "vh" ]
+      "units": ["px", "em", "rem", "vw", "vh"]
     },
     "typography": {
       "fontFamilies": [
         {
-          "fontFamily": "Space Grotesk, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
           "name": "Space Grotesk",
-          "slug": "space-grotesk"
+          "slug": "space-grotesk",
+          "fontFamily": "Space Grotesk, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
+          "fontFace": [
+            {
+              "fontFamily": "Space Grotesk",
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "src": ["file:./assets/fonts/space-grotesk-regular.ttf"]
+            },
+            {
+              "fontFamily": "Space Grotesk",
+              "fontStyle": "normal",
+              "fontWeight": "500",
+              "src": ["file:./assets/fonts/space-grotesk-medium.ttf"]
+            },
+            {
+              "fontFamily": "Space Grotesk",
+              "fontStyle": "normal",
+              "fontWeight": "700",
+              "src": ["file:./assets/fonts/space-grotesk-bold.ttf"]
+            }
+          ]
         }
       ],
-      "lineHeight": { "units": [ "px", "em", "rem" ] }
+      "lineHeight": { "units": ["px", "em", "rem"] }
     }
   },
   "styles": {
@@ -49,9 +69,6 @@
       }
     },
     "blocks": {
-      "core/button": {
-        "border": { "radius": "var(--wp--custom--radius--lg)" }
-      },
       "core/group": {
         "spacing": { "blockGap": "1.2rem" }
       }
