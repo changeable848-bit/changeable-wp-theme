@@ -71,4 +71,28 @@ add_filter('wp_resource_hints', function ($hints, $relation_type) {
         'crossorigin' => 'anonymous',
     ];
     return $hints;
+
+    /**
+ * Portfolio (case studies) – Custom Post Type
+ */
+add_action('init', function () {
+    $labels = [
+        'name' => 'Portfolio',
+        'singular_name' => 'Case Study',
+        'add_new_item' => 'Add New Case Study',
+        'edit_item' => 'Edit Case Study',
+        'menu_name' => 'Portfolio'
+    ];
+    $args = [
+        'labels' => $labels,
+        'public' => true,
+        'has_archive' => true,          // /portfolio/
+        'rewrite' => ['slug' => 'portfolio'],
+        'menu_position' => 20,
+        'menu_icon' => 'dashicons-portfolio',
+        'supports' => ['title','editor','excerpt','thumbnail']
+    ];
+    register_post_type('portfolio', $args);
+});
+
 }, 10, 2);
