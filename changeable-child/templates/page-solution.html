@@ -1,0 +1,38 @@
+<!--
+Template Name: Solution Landing
+-->
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"3rem","bottom":"2rem"}}}} -->
+<div class="wp-block-group" style="padding-top:3rem;padding-bottom:2rem">
+  <!-- wp:post-title {"level":1} /-->
+  <!-- wp:post-featured-image {"height":"360px","style":{"border":{"radius":"var(--wp--custom--radius--lg)"}}} /-->
+  <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:separator {"opacity":"css","className":"is-style-wide"} -->
+<hr class="wp-block-separator has-css-opacity is-style-wide"/>
+<!-- /wp:separator -->
+
+<!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"1rem","bottom":"2rem"}}}} -->
+<div class="wp-block-group" style="padding-top:1rem;padding-bottom:2rem">
+  <!-- wp:heading {"level":2} --><h2>Related case studies</h2><!-- /wp:heading -->
+
+  <!-- wp:query {"queryId":3,"query":{"postType":"portfolio","perPage":3,"order":"desc","orderBy":"date","inherit":false},"displayLayout":{"type":"grid","columns":3}} -->
+  <div class="wp-block-query">
+    <!-- wp:post-template -->
+    <!-- wp:group {"style":{"border":{"radius":"var(--wp--custom--radius--lg)"},"color":{"background":"var(--wp--preset--color--cloud)"},"spacing":{"padding":{"top":"1rem","right":"1rem","bottom":"1.5rem","left":"1rem"}}}} -->
+    <div class="wp-block-group" style="border-radius:var(--wp--custom--radius--lg);background-color:var(--wp--preset--color--cloud);padding-top:1rem;padding-right:1rem;padding-bottom:1.5rem;padding-left:1rem">
+      <!-- wp:post-title {"isLink":true,"level":3} /-->
+      <!-- wp:post-excerpt {"moreText":"Read →"} /-->
+    </div>
+    <!-- /wp:group -->
+    <!-- /wp:post-template -->
+  </div>
+  <!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"cta-free-discovery"} /-->
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
