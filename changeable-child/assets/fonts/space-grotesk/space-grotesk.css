@@ -1,47 +1,20 @@
-/* Space Grotesk – Variable + Fallback weights */
+/* Space Grotesk – self-hosted variable font (TTF) */
 
+/* Variable declaration: modern browsers will use this */
 @font-face {
   font-family: "Space Grotesk";
-  src: url("SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
-  font-weight: 300 700; /* supports all weights between 300–700 */
+  src: url("SpaceGrotesk-VariableFont_wght.ttf") format("truetype-variations"),
+       url("SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
+  font-weight: 300 700; /* full variable range */
   font-style: normal;
   font-display: swap;
 }
 
-/* Explicit fallback declarations for older browsers */
-@font-face {
-  font-family: "Space Grotesk";
-  src: url("SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
+/* Optional explicit fallbacks for older variable support (safe to keep) */
+@font-face { font-family: "Space Grotesk"; src: url("SpaceGrotesk-VariableFont_wght.ttf") format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Space Grotesk"; src: url("SpaceGrotesk-VariableFont_wght.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Space Grotesk"; src: url("SpaceGrotesk-VariableFont_wght.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Space Grotesk"; src: url("SpaceGrotesk-VariableFont_wght.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
 
-@font-face {
-  font-family: "Space Grotesk";
-  src: url("SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Space Grotesk";
-  src: url("SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Space Grotesk";
-  src: url("SpaceGrotesk-VariableFont_wght.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Apply globally */
-body {
-  font-family: "Space Grotesk", sans-serif;
-}
+/* (Optional) apply globally if you want a belt-and-braces guarantee */
+/* body { font-family: "Space Grotesk", sans-serif; } */
