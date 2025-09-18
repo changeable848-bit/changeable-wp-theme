@@ -5,28 +5,33 @@
     "typography": {
       "fontFamilies": [
         {
-          "fontFamily": "Space Grotesk, sans-serif",
+          "fontFamily": "\"Space Grotesk\", sans-serif",
           "name": "Space Grotesk",
           "slug": "space-grotesk"
+        },
+        {
+          "fontFamily": "system-ui, sans-serif",
+          "name": "System Default",
+          "slug": "system-ui"
         }
-      ],
-      "defaultFontSizes": true,
-      "fluid": true
-    },
-    "color": {
-      "palette": [
-        { "slug": "black", "color": "#000000", "name": "Black" },
-        { "slug": "white", "color": "#ffffff", "name": "White" }
       ]
     }
   },
   "styles": {
     "typography": {
-      "fontFamily": "var(--wp--preset--font-family--space-grotesk)",
-      "fontWeight": "400",
-      "lineHeight": "1.6"
+      "fontFamily": "var(--wp--preset--font-family--space-grotesk)"
     },
     "elements": {
       "heading": {
         "typography": {
-          "fontFamily": "var(--wp--preset--font-family--space-grotes
+          "fontFamily": "var(--wp--preset--font-family--space-grotesk)"
+        }
+      },
+      "button": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--space-grotesk)"
+        }
+      }
+    }
+  }
+}
