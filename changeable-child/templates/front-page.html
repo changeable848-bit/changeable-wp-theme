@@ -1,55 +1,45 @@
-<!-- Header -->
-<!-- wp:template-part {"slug":"header","area":"header"} /-->
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+  <meta charset="<?php bloginfo('charset'); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>>
 
-<!-- ===== HERO (code-driven; editor not required) ===== -->
-<section class="chg-hero chg-hero--full" aria-label="Hero">
-  <div class="chg-hero__inner">
-    <!-- Left: blush content panel -->
-    <div class="chg-hero__left">
-      <div class="chg-hero__panel">
-        <h1 class="chg-hero__title">
-          <span class="chg-hero__ai">Ai</span> Agency
-        </h1>
-        <p class="chg-hero__intro">
-          Assisting business to successfully transform and thrive in the AI era.
-          Simple, practical, and without disruption.
-        </p>
-
-        <div class="chg-hero__ctas">
-          <a class="chg-btn chg-btn--black" href="/contact/">Free Discovery Workshop</a>
-          <a class="chg-btn chg-btn--outline" href="/solutions/">See how we can help you</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Right: photo + yellow card -->
-    <div class="chg-hero__right">
-      <!-- Swap URL for your real hero image later -->
-      <img class="chg-hero__img" src="https://picsum.photos/id/1067/1400/1000" alt="Team photo" />
-      <div class="chg-hero__card">
-        <span>See how we can help you</span>
-      </div>
-    </div>
+<header class="chg-header">
+  <div class="chg-container">
+    <div class="chg-logo">Changeable</div>
+    <nav class="chg-nav">
+      <a href="/">Home</a>
+      <a href="/solutions/">Solutions</a>
+      <a href="/portfolio/">Portfolio</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
   </div>
-</section>
-<!-- ===== /HERO ===== -->
+</header>
 
-<!-- Keep the rest of your existing homepage for now -->
-<!-- Solutions intro -->
-<!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"1rem","bottom":"2rem"}}}} -->
-<div class="wp-block-group" style="padding-top:1rem;padding-bottom:2rem">
-  <!-- wp:heading {"level":2} --><h2>Solutions</h2><!-- /wp:heading -->
-  <!-- wp:paragraph --><p>Pick a starting point. Every engagement ends with a clear, defensible business case and a path to shipping.</p><!-- /wp:paragraph -->
-  <!-- wp:shortcode -->[changeable_solutions_grid columns="3" limit="12"]<!-- /wp:shortcode -->
-</div>
-<!-- /wp:group -->
+<main>
+  <!-- Hero -->
+  <section class="chg-hero">
+    <div class="chg-hero__left">
+      <h1><span class="ai">Ai</span> Agency</h1>
+      <p>Assisting business to successfully transform and thrive in the AI era. 
+         Simple, practical, and without disruption.</p>
+      <div class="chg-cta">
+        <a href="/contact/" class="chg-btn black">Free Discovery Workshop</a>
+        <a href="/solutions/" class="chg-btn outline">See how we can help you</a>
+      </div>
+    </div>
+    <div class="chg-hero__right">
+      <img src="https://picsum.photos/id/1067/1400/1000" alt="Hero image">
+      <div class="yellow-card">See how we can help you</div>
+    </div>
+  </section>
+</main>
 
-<!-- Recent case studies -->
-<!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"2rem","bottom":"2rem"}}}} -->
-<div class="wp-block-group" style="padding-top:2rem;padding-bottom:2rem">
-  <!-- wp:heading {"level":2} --><h2>Recent case studies</h2><!-- /wp:heading -->
-  <!-- wp:query {"queryId":2,"query":{"postType":"portfolio","perPage":3,"order":"desc","orderBy":"date","inherit":false},"displayLayout":{"type":"grid","columns":3}} -->
-  <div class="wp-block-query">
-    <!-- wp:post-template -->
-    <!-- wp:group {"style":{"border":{"radius":"24px"},"color":{"background":"var(--wp--preset--color--cloud)"},"spacing":{"padding":{"top":"1rem","right":"1rem","bottom":"1.5rem","left":"1rem"}}}} -->
-    <div class="wp-block-group" style="border-radius:24px
+<?php wp_footer(); ?>
+</body>
+</html>
