@@ -1,107 +1,131 @@
 <?php
 /**
- * Changeable Child – functions.php
+ * Theme: Changeable (TT25 child)
+ * Purpose: setup, helpers, redirects, patterns, and Solutions Hub shortcode
  */
+
+if ( ! defined('ABSPATH') ) { exit; }
 
 /**
- * Theme supports
+ * Theme supports + editor styles
  */
 add_action('after_setup_theme', function () {
-    add_theme_support('title-tag');
-    add_theme_support('post-thumbnails');
-    add_theme_support('editor-styles');
-
-    // Load the same self-hosted font CSS in the editor
-    add_editor_style('assets/fonts/space-grotesk/space-grotesk.css');
+  add_theme_support('wp-block-styles');
+  add_theme_support('align-wide');
+  add_theme_support('responsive-embeds');
+  add_theme_support('editor-styles');
+  add_editor_style('styles/blocks.css');
 });
 
 /**
- * Enqueue styles (parent → font → child)
+ * Register Block Pattern Category
  */
-add_action('wp_enqueue_scripts', function () {
-    // Parent stylesheet (TT25)
-    if (is_child_theme()) {
-        wp_enqueue_style(
-            'parent-style',
-            get_template_directory_uri() . '/style.css',
-            [],
-            null
-        );
-    }
-
-    // Self-hosted Space Grotesk
-    wp_enqueue_style(
-        'changeable-space-grotesk',
-        get_stylesheet_directory_uri() . '/assets/fonts/space-grotesk/space-grotesk.css',
-        [],
-        null
+add_action('init', function () {
+  if ( function_exists('register_block_pattern_category') ) {
+    register_block_pattern_category(
+      'changeable',
+      ['label' => __('Changeable', 'changeable')]
     );
-
-    // Child stylesheet
-    wp_enqueue_style(
-        'changeable-child-style',
-        get_stylesheet_directory_uri() . '/style.css',
-        ['parent-style', 'changeable-space-grotesk'],
-        wp_get_theme()->get('Version')
-    );
-}, 20);
+  }
+});
 
 /**
- * Preload the Space Grotesk variable font
+ * Font preloads (expects WOFF2 files in /assets/fonts)
+ * Adjust filenames if yours differ.
  */
-add_filter('wp_resource_hints', function ($hints, $relation_type) {
-    if ($relation_type !== 'preload') return $hints;
+add_filter('wp_resource_hints', function($hints, $relation){
+  if ($relation !== 'preload') return $hints;
 
-    $font_url = get_stylesheet_directory_uri() . '/assets/fonts/space-grotesk/SpaceGrotesk-VariableFont_wght.ttf';
-
+  $font_dir = get_stylesheet_directory_uri() . '/assets/fonts';
+  $candidates = [
+    $font_dir . '/space-grotesk-regular.woff2',
+    $font_dir . '/space-grotesk-medium.woff2',
+    $font_dir . '/space-grotesk-bold.woff2',
+  ];
+  foreach ($candidates as $url) {
     $hints[] = [
-        'href'        => $font_url,
-        'as'          => 'font',
-        'type'        => 'font/ttf', // switch to 'font/woff2' after conversion
-        'crossorigin' => 'anonymous',
+      'href' => $url,
+      'as'   => 'font',
+      'type' => 'font/woff2',
+      'crossorigin' => 'anonymous'
     ];
-    return $hints;
+  }
+  return $hints;
 }, 10, 2);
 
 /**
- * Portfolio (case studies) – Custom Post Type
+ * Lightweight redirects (301)
+ * - /blog-insights/*  -> /blog/*
+ * - /work-portfolio/* -> /portfolio/*
  */
-add_action('init', function () {
-    $labels = [
-        'name'                  => 'Portfolio',
-        'singular_name'         => 'Case Study',
-        'add_new'               => 'Add New',
-        'add_new_item'          => 'Add New Case Study',
-        'edit_item'             => 'Edit Case Study',
-        'new_item'              => 'New Case Study',
-        'view_item'             => 'View Case Study',
-        'search_items'          => 'Search Portfolio',
-        'not_found'             => 'No case studies found',
-        'not_found_in_trash'    => 'No case studies found in Trash',
-        'all_items'             => 'All Case Studies',
-        'menu_name'             => 'Portfolio',
-        'name_admin_bar'        => 'Case Study',
-    ];
+add_action('template_redirect', function () {
+  $request_uri = $_SERVER['REQUEST_URI'] ?? '';
+  $host        = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'];
 
-    $args = [
-        'labels'             => $labels,
-        'public'             => true,
-        'show_in_menu'       => true,
-        'show_in_rest'       => true,
-        'has_archive'        => true,                 // /portfolio/
-        'rewrite'            => ['slug' => 'portfolio'],
-        'menu_position'      => 20,
-        'menu_icon'          => 'dashicons-portfolio',
-        'supports'           => ['title', 'editor', 'excerpt', 'thumbnail'],
-        'capability_type'    => 'post',
-    ];
+  if (preg_match('#^/blog-insights(?:/.*)?$#', $request_uri)) {
+    $target = preg_replace('#^/blog-insights#', '/blog', $request_uri);
+    wp_safe_redirect( $host . $target, 301 );
+    exit;
+  }
 
-    register_post_type('portfolio', $args);
+  if (preg_match('#^/work-portfolio(?:/.*)?$#', $request_uri)) {
+    $target = preg_replace('#^/work-portfolio#', '/portfolio', $request_uri);
+    wp_safe_redirect( $host . $target, 301 );
+    exit;
+  }
 });
 
 /**
- * Flush rewrite rules on theme switch (one-time)
+ * Solutions Hub shortcode
+ * Usage in templates/content: [changeable_solutions_grid]
+ * Pulls child pages under the parent page with path 'solutions'
+ * and renders a simple responsive grid (image, title, excerpt).
  */
-add_action('after_switch_theme', function () {
-    flush_rewrite_rules();
-});
+function changeable_render_solutions_grid($atts = []) {
+  $atts = shortcode_atts([
+    'parent_path' => 'solutions',
+    'columns'     => 3,
+    'limit'       => 12,
+  ], $atts, 'changeable_solutions_grid');
+
+  $parent = get_page_by_path( trim($atts['parent_path'], " /") );
+  if ( ! $parent ) {
+    return '<p><!-- Solutions parent page not found. Create /solutions/ --></p>';
+  }
+
+  $q = new WP_Query([
+    'post_type'      => 'page',
+    'post_parent'    => $parent->ID,
+    'orderby'        => 'menu_order',
+    'order'          => 'ASC',
+    'posts_per_page' => intval($atts['limit']),
+    'no_found_rows'  => true,
+  ]);
+
+  if ( ! $q->have_posts() ) {
+    return '<p><!-- No child pages under /solutions/ yet. Add some. --></p>';
+  }
+
+  $cols = max(1, min(6, intval($atts['columns'])));
+
+  ob_start(); ?>
+  <div class="chg-solutions-grid chg-cols-<?php echo esc_attr($cols); ?>">
+    <?php while ( $q->have_posts() ) : $q->the_post(); ?>
+      <article class="chg-solution-item">
+        <a class="chg-solution-media" href="<?php the_permalink(); ?>">
+          <?php if ( has_post_thumbnail() ) {
+            the_post_thumbnail('large', ['class' => 'chg-solution-thumb']);
+          } ?>
+        </a>
+        <h3 class="chg-solution-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+        <div class="chg-solution-excerpt">
+          <?php echo wp_kses_post( wpautop( get_the_excerpt() ?: '' ) ); ?>
+          <p class="chg-more"><a href="<?php the_permalink(); ?>">Learn more →</a></p>
+        </div>
+      </article>
+    <?php endwhile; wp_reset_postdata(); ?>
+  </div>
+  <?php
+  return ob_get_clean();
+}
+add_shortcode('changeable_solutions_grid', 'changeable_render_solutions_grid');
