@@ -1,0 +1,13 @@
+/* Apply Space Grotesk inside the block editor */
+.editor-styles-wrapper,
+.editor-styles-wrapper * {
+  font-family: "Space Grotesk", sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Nice defaults */
+.editor-styles-wrapper p { font-weight: 400; line-height: 1.6; }
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3 { font-weight: 700; line-height: 1.2; }
