@@ -1,84 +1,36 @@
-/* ==== Base typography: your variable Space Grotesk everywhere ==== */
-html, body {
-  font-family: "SpaceGrotesk", "Space Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+<!-- wp:template-part {"slug":"hero"} /-->
 
-/* ==== Buttons: rounded, bold, subtle hover ==== */
-.wp-block-button .wp-block-button__link {
-  border-radius: 999px;
-  font-weight: 700;
-}
-.chg-btn-primary .wp-block-button__link { box-shadow: 0 1px 0 rgba(0,0,0,.06); }
-.chg-btn-primary .wp-block-button__link:hover { transform: translateY(-1px); }
-.chg-btn-outline .wp-block-button__link { border-width: 1.5px; }
+<!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"1rem","bottom":"2rem"}}}} -->
+<div class="wp-block-group" style="padding-top:1rem;padding-bottom:2rem">
+  <!-- wp:heading {"level":2} --><h2>Solutions</h2><!-- /wp:heading -->
+  <!-- wp:paragraph --><p>Pick a starting point. Every engagement ends with a clear, defensible business case and a path to shipping.</p><!-- /wp:paragraph -->
 
-/* ==== Hero layout ==== */
-.chg-hero-columns { gap: 2rem; align-items: center; }
-.chg-hero-title .chg-hero-ai { color: var(--wp--preset--color--accent-2, #F97316); } /* colour just for the “Ai” span */
+  <!-- wp:shortcode -->[changeable_solutions_grid columns="3" limit="12"]<!-- /wp:shortcode -->
+</div>
+<!-- /wp:group -->
 
-.chg-hero-left-inner { /* pink panel is set inline in HTML so no token change needed here */ }
+<!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"2rem","bottom":"2rem"}}}} -->
+<div class="wp-block-group" style="padding-top:2rem;padding-bottom:2rem">
+  <!-- wp:heading {"level":2} --><h2>Recent case studies</h2><!-- /wp:heading -->
 
-.chg-hero-right { position: relative; }
-.chg-hero-photo img {
-  width: 100%;
-  height: auto;
-  border-radius: 24px;
-  display: block;
-  background: #ddd; /* visible placeholder gray */
-}
+  <!-- wp:query {"queryId":2,"query":{"postType":"portfolio","perPage":3,"order":"desc","orderBy":"date","inherit":false},"displayLayout":{"type":"grid","columns":3}} -->
+  <div class="wp-block-query">
+    <!-- wp:post-template -->
+    <!-- wp:group {"style":{"border":{"radius":"24px"},"color":{"background":"var(--wp--preset--color--cloud)"},"spacing":{"padding":{"top":"1rem","right":"1rem","bottom":"1.5rem","left":"1rem"}}}} -->
+    <div class="wp-block-group" style="border-radius:24px;background-color:var(--wp--preset--color--cloud);padding-top:1rem;padding-right:1rem;padding-bottom:1.5rem;padding-left:1rem">
+      <!-- wp:post-title {"isLink":true,"level":3} /-->
+      <!-- wp:post-excerpt {"moreText":"Read case study →"} /-->
+    </div>
+    <!-- /wp:group -->
+    <!-- /wp:post-template -->
+    <!-- wp:query-no-results -->
+    <!-- wp:paragraph --><p>No case studies yet — coming soon.</p><!-- /wp:paragraph -->
+    <!-- /wp:query-no-results -->
+  </div>
+  <!-- /wp:query -->
+</div>
+<!-- /wp:group -->
 
-.chg-hero-card {
-  position: absolute;
-  left: -12px;
-  bottom: 10%;
-  transform: rotate(-3deg);
-  box-shadow: 0 8px 24px rgba(0,0,0,.08);
-}
-
-/* ==== Separator polish ==== */
-.wp-block-separator.is-style-wide { opacity: .15; }
-
-/* ==== Homepage solutions grid (shortcode output) ==== */
-.chg-solutions-grid { display: grid; gap: 1.25rem; }
-.chg-cols-1 { grid-template-columns: 1fr; }
-.chg-cols-2 { grid-template-columns: repeat(2, 1fr); }
-.chg-cols-3 { grid-template-columns: repeat(3, 1fr); }
-@media (max-width: 900px) { .chg-cols-3 { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .chg-cols-2, .chg-cols-3 { grid-template-columns: 1fr; } }
-
-.chg-solution-item {
-  background: var(--wp--preset--color--cloud, #F6F7F9);
-  border-radius: 24px;
-  padding: 1rem 1rem 1.25rem;
-}
-.chg-solution-thumb {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 16px;
-  display: block;
-}
-.chg-solution-title { margin: 0.85rem 0 0.25rem; font-size: 1.2rem; }
-.chg-solution-title a, .chg-more a { text-decoration: none; font-weight: 700; }
-
-/* ==== Footer micro-brand line (optional gentle center) ==== */
-.site-footer p { text-align: center; font-size: .9rem; color: #666; }
-
-/* Hero photo + card positioning */
-.chg-hero-right { position: relative; }
-.chg-hero-photo img {
-  width: 100%;
-  height: auto;
-  border-radius: 24px;
-  display: block;
-}
-.chg-hero-card {
-  position: absolute;
-  left: 10%;
-  bottom: 10%;
-  transform: rotate(-3deg);
-  box-shadow: 0 8px 24px rgba(0,0,0,.08);
-}
-
+<!-- wp:template-part {"slug":"cta-free-discovery"} /-->
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
