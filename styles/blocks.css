@@ -1,0 +1,58 @@
+/* --- Global polish --- */
+.wp-block-button.is-style-outline .wp-block-button__link {
+  border-radius: var(--wp--custom--radius--lg);
+}
+.wp-block-post-excerpt__more-link {
+  font-weight: 700;
+  text-decoration: none;
+}
+.wp-block-separator.is-style-wide {
+  opacity: .15;
+}
+
+/* --- Solutions Hub grid (shortcode output) --- */
+.chg-solutions-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+.chg-cols-1 { grid-template-columns: 1fr; }
+.chg-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.chg-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.chg-cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 1000px) {
+  .chg-cols-4 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px) {
+  .chg-cols-3, .chg-cols-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .chg-cols-2, .chg-cols-3, .chg-cols-4 { grid-template-columns: 1fr; }
+}
+
+.chg-solution-item {
+  background: var(--wp--preset--color--cloud);
+  border-radius: var(--wp--custom--radius--lg);
+  padding: 1rem 1rem 1.25rem;
+}
+.chg-solution-thumb {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--wp--custom--radius--md);
+  display: block;
+}
+.chg-solution-title {
+  margin: 0.85rem 0 0.25rem;
+  font-size: 1.2rem;
+}
+.chg-solution-title a {
+  text-decoration: none;
+}
+.chg-solution-excerpt {
+  font-size: 0.98rem;
+}
+.chg-more a {
+  font-weight: 700;
+  text-decoration: none;
+}
