@@ -1,0 +1,33 @@
+/* Use Space Grotesk everywhere (your variable font loaded by space-grotesk.css) */
+html, body {
+  font-family: "Space Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Minimal polish (unchanged) */
+.wp-block-button.is-style-outline .wp-block-button__link { border-radius: 24px; }
+.wp-block-post-excerpt__more-link { font-weight: 700; text-decoration: none; }
+.wp-block-separator.is-style-wide { opacity: .15; }
+
+/* Solutions grid */
+.chg-solutions-grid { display: grid; gap: 1.25rem; }
+.chg-cols-1 { grid-template-columns: 1fr; }
+.chg-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.chg-cols-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .chg-cols-3 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .chg-cols-2, .chg-cols-3 { grid-template-columns: 1fr; } }
+
+.chg-solution-item {
+  background: var(--wp--preset--color--cloud);
+  border-radius: 24px;
+  padding: 1rem 1rem 1.25rem;
+}
+.chg-solution-thumb {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+.chg-solution-title { margin: 0.85rem 0 0.25rem; font-size: 1.2rem; }
+.chg-solution-title a { text-decoration: none; }
+.chg-more a { font-weight: 700; text-decoration: none; }
