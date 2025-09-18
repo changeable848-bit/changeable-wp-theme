@@ -7,31 +7,23 @@
         {
           "fontFamily": "\"Space Grotesk\", sans-serif",
           "name": "Space Grotesk",
-          "slug": "space-grotesk"
-        },
-        {
-          "fontFamily": "system-ui, sans-serif",
-          "name": "System Default",
-          "slug": "system-ui"
-        }
-      ]
-    }
-  },
-  "styles": {
-    "typography": {
-      "fontFamily": "var(--wp--preset--font-family--space-grotesk)"
-    },
-    "elements": {
-      "heading": {
-        "typography": {
-          "fontFamily": "var(--wp--preset--font-family--space-grotesk)"
-        }
-      },
-      "button": {
-        "typography": {
-          "fontFamily": "var(--wp--preset--font-family--space-grotesk)"
-        }
-      }
-    }
-  }
-}
+          "slug": "space-grotesk",
+          "fontFace": [
+            {
+              "fontFamily": "Space Grotesk",
+              "fontWeight": "300",
+              "fontStyle": "normal",
+              "src": [ "file:./assets/fonts/space-grotesk/SpaceGrotesk-VariableFont_wght.ttf" ]
+            },
+            {
+              "fontFamily": "Space Grotesk",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "src": [ "file:./assets/fonts/space-grotesk/SpaceGrotesk-VariableFont_wght.ttf" ]
+            },
+            {
+              "fontFamily": "Space Grotesk",
+              "fontWeight": "500",
+              "fontStyle": "normal",
+              "src": [ "file:./assets/fonts/space-grotesk/SpaceGrotesk-VariableFont_wght.ttf" ]
+            }
