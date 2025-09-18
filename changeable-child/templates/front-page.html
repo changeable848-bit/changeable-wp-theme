@@ -1,9 +1,10 @@
 <!-- Header -->
 <!-- wp:template-part {"slug":"header","area":"header"} /-->
 
-<!-- ===== Full-width HERO (pure HTML; editor-safe) ===== -->
+<!-- ===== HERO (code-driven; editor not required) ===== -->
 <section class="chg-hero chg-hero--full" aria-label="Hero">
   <div class="chg-hero__inner">
+    <!-- Left: blush content panel -->
     <div class="chg-hero__left">
       <div class="chg-hero__panel">
         <h1 class="chg-hero__title">
@@ -15,21 +16,26 @@
         </p>
 
         <div class="chg-hero__ctas">
-          <a class="wp-block-button__link chg-btn chg-btn--black" href="/contact/">Free Discovery Workshop</a>
-          <a class="wp-block-button__link chg-btn chg-btn--outline" href="/solutions/">See how we can help you</a>
+          <a class="chg-btn chg-btn--black" href="/contact/">Free Discovery Workshop</a>
+          <a class="chg-btn chg-btn--outline" href="/solutions/">See how we can help you</a>
         </div>
       </div>
     </div>
 
+    <!-- Right: photo + yellow card -->
     <div class="chg-hero__right">
-      <!-- Placeholder image. Swap this URL later for your real hero image. -->
-      <img src="https://picsum.photos/id/1067/1200/800" alt="Hero image" class="chg-hero__img">
+      <!-- Swap URL for your real hero image later -->
+      <img class="chg-hero__img" src="https://picsum.photos/id/1067/1400/1000" alt="Team photo" />
+      <div class="chg-hero__card">
+        <span>See how we can help you</span>
+      </div>
     </div>
   </div>
 </section>
 <!-- ===== /HERO ===== -->
 
-<!-- Solutions intro + grid -->
+<!-- Keep the rest of your existing homepage for now -->
+<!-- Solutions intro -->
 <!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"1rem","bottom":"2rem"}}}} -->
 <div class="wp-block-group" style="padding-top:1rem;padding-bottom:2rem">
   <!-- wp:heading {"level":2} --><h2>Solutions</h2><!-- /wp:heading -->
@@ -38,7 +44,7 @@
 </div>
 <!-- /wp:group -->
 
-<!-- Portfolio teaser -->
+<!-- Recent case studies -->
 <!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"2rem","bottom":"2rem"}}}} -->
 <div class="wp-block-group" style="padding-top:2rem;padding-bottom:2rem">
   <!-- wp:heading {"level":2} --><h2>Recent case studies</h2><!-- /wp:heading -->
@@ -46,20 +52,4 @@
   <div class="wp-block-query">
     <!-- wp:post-template -->
     <!-- wp:group {"style":{"border":{"radius":"24px"},"color":{"background":"var(--wp--preset--color--cloud)"},"spacing":{"padding":{"top":"1rem","right":"1rem","bottom":"1.5rem","left":"1rem"}}}} -->
-    <div class="wp-block-group" style="border-radius:24px;background-color:var(--wp--preset--color--cloud);padding-top:1rem;padding-right:1rem;padding-bottom:1.5rem;padding-left:1rem">
-      <!-- wp:post-title {"isLink":true,"level":3} /-->
-      <!-- wp:post-excerpt {"moreText":"Read case study →"} /-->
-    </div>
-    <!-- /wp:group -->
-    <!-- /wp:post-template -->
-    <!-- wp:query-no-results -->
-    <!-- wp:paragraph --><p>No case studies yet — coming soon.</p><!-- /wp:paragraph -->
-    <!-- /wp:query-no-results -->
-  </div>
-  <!-- /wp:query -->
-</div>
-<!-- /wp:group -->
-
-<!-- CTA + Footer -->
-<!-- wp:template-part {"slug":"cta-free-discovery"} /-->
-<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
+    <div class="wp-block-group" style="border-radius:24px
