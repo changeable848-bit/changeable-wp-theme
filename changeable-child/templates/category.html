@@ -1,0 +1,35 @@
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"56px","bottom":"80px"}}},"layout":{"type":"constrained","contentSize":"780px","wideSize":"1200px"}} -->
+<main class="wp-block-group" style="padding-top:56px;padding-bottom:80px">
+	<!-- wp:query-title {"type":"archive","textAlign":"left","fontSize":"2xl"} /-->
+	<!-- wp:paragraph {"style":{"color":{"text":"#6a6a6a"}}} -->
+	<p class="has-text-color" style="color:#6a6a6a">Articles grouped by topic.</p>
+	<!-- /wp:paragraph -->
+
+	<!-- wp:query {"queryId":1,"query":{"perPage":9,"postType":"post","inherit":true},"displayLayout":{"type":"flex","columns":3},"layout":{"type":"constrained","contentSize":"1200px"},"style":{"spacing":{"margin":{"top":"24px"}}}} -->
+	<div class="wp-block-query" style="margin-top:24px">
+		<!-- wp:post-template -->
+		<!-- wp:group {"style":{"border":{"radius":"18px"},"spacing":{"blockGap":"12px","padding":{"top":"16px","right":"16px","bottom":"16px","left":"16px"}},"shadow":"0 6px 22px rgba(0,0,0,0.06)"},"backgroundColor":"bg"} -->
+		<div class="wp-block-group has-bg-background-color has-background" style="border-radius:18px;padding:16px;box-shadow:0 6px 22px rgba(0,0,0,0.06)">
+			<!-- wp:post-featured-image {"isLink":true,"style":{"border":{"radius":"14px"},"spacing":{"margin":{"bottom":"8px"}}}} /-->
+			<!-- wp:post-title {"isLink":true} /-->
+			<!-- wp:group {"style":{"color":{"text":"#6a6a6a"},"typography":{"fontSize":"sm"},"spacing":{"blockGap":"6px"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group has-text-color" style="color:#6a6a6a;font-size:var(--wp--preset--font-size--sm)">
+				<!-- wp:post-date /--> • <!-- wp:post-terms {"term":"category"} /-->
+			</div>
+			<!-- /wp:group -->
+			<!-- wp:post-excerpt {"moreText":"Read more →"} /-->
+		</div>
+		<!-- /wp:group -->
+		<!-- /wp:post-template -->
+
+		<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"space-between"},"style":{"spacing":{"margin":{"top":"24px"}}}} -->
+		<!-- wp:query-pagination-previous /-->
+		<!-- wp:query-pagination-numbers /-->
+		<!-- wp:query-pagination-next /-->
+		<!-- /wp:query-pagination -->
+	</div>
+	<!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
