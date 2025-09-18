@@ -1,7 +1,7 @@
 <?php
 /**
- * Theme: Changeable (TT25 child)
- * Purpose: setup, helpers, redirects, patterns, and Solutions Hub shortcode
+ * Theme: Changeable (child)
+ * Purpose: setup, helpers, redirects, and Solutions Hub shortcode
  */
 
 if ( ! defined('ABSPATH') ) { exit; }
@@ -30,30 +30,6 @@ add_action('init', function () {
 });
 
 /**
- * Font preloads (expects WOFF2 files in /assets/fonts)
- * Adjust filenames if yours differ.
- */
-add_filter('wp_resource_hints', function($hints, $relation){
-  if ($relation !== 'preload') return $hints;
-
-  $font_dir = get_stylesheet_directory_uri() . '/assets/fonts';
-  $candidates = [
-    $font_dir . '/space-grotesk-regular.woff2',
-    $font_dir . '/space-grotesk-medium.woff2',
-    $font_dir . '/space-grotesk-bold.woff2',
-  ];
-  foreach ($candidates as $url) {
-    $hints[] = [
-      'href' => $url,
-      'as'   => 'font',
-      'type' => 'font/woff2',
-      'crossorigin' => 'anonymous'
-    ];
-  }
-  return $hints;
-}, 10, 2);
-
-/**
  * Lightweight redirects (301)
  * - /blog-insights/*  -> /blog/*
  * - /work-portfolio/* -> /portfolio/*
@@ -77,9 +53,8 @@ add_action('template_redirect', function () {
 
 /**
  * Solutions Hub shortcode
- * Usage in templates/content: [changeable_solutions_grid]
- * Pulls child pages under the parent page with path 'solutions'
- * and renders a simple responsive grid (image, title, excerpt).
+ * Usage: [changeable_solutions_grid columns="3" limit="12"]
+ * Pulls child pages under the parent page: /solutions/
  */
 function changeable_render_solutions_grid($atts = []) {
   $atts = shortcode_atts([
@@ -90,7 +65,7 @@ function changeable_render_solutions_grid($atts = []) {
 
   $parent = get_page_by_path( trim($atts['parent_path'], " /") );
   if ( ! $parent ) {
-    return '<p><!-- Solutions parent page not found. Create /solutions/ --></p>';
+    return '<p><!-- Create a page at /solutions/ to populate this grid. --></p>';
   }
 
   $q = new WP_Query([
@@ -103,7 +78,7 @@ function changeable_render_solutions_grid($atts = []) {
   ]);
 
   if ( ! $q->have_posts() ) {
-    return '<p><!-- No child pages under /solutions/ yet. Add some. --></p>';
+    return '<p><!-- No child pages under /solutions/ yet. --></p>';
   }
 
   $cols = max(1, min(6, intval($atts['columns'])));
