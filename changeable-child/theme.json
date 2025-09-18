@@ -94,6 +94,18 @@
       }
     },
     "blocks": {
+      "core/button": {
+        "color": {
+          "text": "#ffffff",
+          "background": "#000000"
+        },
+        "typography": {
+          "fontWeight": "700"
+        },
+        "border": {
+          "radius": "var(--wp--custom--radius--lg)"
+        }
+      },
       "core/group": {
         "spacing": { "blockGap": "1.2rem" }
       }
