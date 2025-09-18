@@ -3,13 +3,11 @@
   "settings": {
     "appearanceTools": true,
 
-    /* ✅ ADD: site layout sizes so alignwide/alignfull work */
     "layout": {
       "contentSize": "1140px",
       "wideSize": "1400px"
     },
 
-    /* (optional but helpful) ensure Group blocks inherit the same layout sizes */
     "blocks": {
       "core/group": {
         "layout": {
@@ -74,7 +72,6 @@
   "styles": {
     "color": { "text": "var(--wp--preset--color--ink)" },
 
-    /* (optional) mirror layout defaults in styles so wrappers use them too */
     "layout": {
       "contentSize": "1140px",
       "wideSize": "1400px"
@@ -89,7 +86,11 @@
         "spacing": {
           "padding": { "top": "0.8rem", "right": "1.2rem", "bottom": "0.8rem", "left": "1.2rem" }
         },
-        "typography": { "fontWeight": "700" }
+        "typography": { "fontWeight": "700" },
+        "color": {
+          "text": "#ffffff",
+          "background": "#000000"
+        }
       }
     },
     "blocks": {
