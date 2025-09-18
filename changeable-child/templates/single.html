@@ -1,15 +1,41 @@
 <!-- wp:template-part {"slug":"header","area":"header"} /-->
 
-<!-- wp:group {"tagName":"main","layout":{"type":"constrained","contentSize":"780px"},"style":{"spacing":{"padding":{"top":"48px","bottom":"48px"}}}} -->
-<main class="wp-block-group" style="padding-top:48px;padding-bottom:48px">
-	<!-- wp:post-title {"level":1} /-->
-	<!-- wp:group {"style":{"color":{"text":"#666"},"typography":{"fontSize":"sm"}}} -->
-	<div class="wp-block-group has-text-color" style="color:#666">
-		<!-- wp:post-date /--> • <!-- wp:post-terms {"term":"category"} /-->
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"56px","bottom":"80px"}}},"layout":{"type":"constrained","contentSize":"780px","wideSize":"1200px"}} -->
+<main class="wp-block-group" style="padding-top:56px;padding-bottom:80px">
+
+	<!-- Hero -->
+	<!-- wp:group {"style":{"spacing":{"blockGap":"10px","margin":{"bottom":"20px"}}}} -->
+	<div class="wp-block-group" style="margin-bottom:20px">
+		<!-- wp:post-title {"level":1,"fontSize":"3xl"} /-->
+		<!-- wp:group {"style":{"color":{"text":"#6a6a6a"},"typography":{"fontSize":"sm"},"spacing":{"blockGap":"6px"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+		<div class="wp-block-group has-text-color" style="color:#6a6a6a;font-size:var(--wp--preset--font-size--sm)">
+			<!-- wp:post-date /--> • <!-- wp:post-terms {"term":"category"} /-->
+		</div>
+		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
-	<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+
+	<!-- Feature -->
+	<!-- wp:post-featured-image {"style":{"border":{"radius":"18px"},"spacing":{"margin":{"bottom":"20px"}}}} /-->
+
+	<!-- Content card -->
+	<!-- wp:group {"style":{"border":{"radius":"20px"},"spacing":{"padding":{"top":"28px","right":"28px","bottom":"28px","left":"28px"},"blockGap":"16px"}},"backgroundColor":"muted"} -->
+	<div class="wp-block-group has-muted-background-color has-background" style="border-radius:20px;padding:28px">
+		<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- Post nav -->
+	<!-- wp:group {"style":{"spacing":{"margin":{"top":"28px"}}},"layout":{"type":"flex","justifyContent":"space-between"}} -->
+	<div class="wp-block-group" style="margin-top:28px">
+		<!-- wp:post-navigation-link {"type":"previous","showTitle":true,"label":"← Previous"} /-->
+		<!-- wp:post-navigation-link {"type":"next","showTitle":true,"label":"Next →"} /-->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- Comments -->
 	<!-- wp:comments /-->
+
 </main>
 <!-- /wp:group -->
 
