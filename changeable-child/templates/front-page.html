@@ -1,69 +1,47 @@
-<!-- wp:template-part {"slug":"header"} /-->
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
 
-<!-- wp:group {"style":{"spacing":{"padding":{"top":"48px","bottom":"48px"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group">
-  <!-- HERO -->
-  <!-- wp:group {"style":{"spacing":{"padding":{"top":"32px","bottom":"32px"}},"border":{"radius":"16px"},"color":{"background":"var(--wp--preset--color--brand)"}}, "layout":{"type":"constrained"}} -->
-  <div class="wp-block-group" style="padding:32px;border-radius:16px;background:var(--wp--preset--color--brand)">
-    <!-- wp:heading {"level":1,"style":{"typography":{"fontSize":"clamp(28px,6vw,48px)","fontWeight":"700"}}} -->
-    <h1>Ai Agency in New Zealand</h1>
-    <!-- /wp:heading -->
-    <!-- wp:paragraph {"style":{"typography":{"fontSize":"18px"}}} -->
-    <p>We design and implement practical AI to improve speed, profit, and workflow — without the fluff.</p>
-    <!-- /wp:paragraph -->
-    <!-- wp:buttons -->
-    <div class="wp-block-buttons">
-      <!-- wp:button {"backgroundColor":"accent"} -->
-      <div class="wp-block-button"><a class="wp-block-button__link has-accent-background-color has-background">Free Discovery Workshop</a></div>
-      <!-- /wp:button -->
-    </div>
-    <!-- /wp:buttons -->
-  </div>
-  <!-- /wp:group -->
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"60px","bottom":"60px"}}},"layout":{"type":"constrained","contentSize":"780px","wideSize":"1200px"}} -->
+<main class="wp-block-group" style="padding-top:60px;padding-bottom:60px">
 
-  <!-- SERVICES -->
-  <!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"56px"}}}} -->
-  <h2>What we do</h2>
-  <!-- /wp:heading -->
+	<!-- Hero -->
+	<!-- wp:group {"style":{"spacing":{"padding":{"top":"40px","bottom":"40px"},"blockGap":"20px"},"border":{"radius":"24px"}},"backgroundColor":"brand","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group has-brand-background-color has-background" style="border-radius:24px;padding-top:40px;padding-bottom:40px">
+		<!-- wp:heading {"level":1,"fontSize":"3xl"} -->
+		<h1 class="wp-block-heading has-3-xl-font-size">Ai Agency in New Zealand</h1>
+		<!-- /wp:heading -->
 
-  <!-- wp:columns {"style":{"spacing":{"blockGap":{"top":"24px","left":"24px"}}}} -->
-  <div class="wp-block-columns">
-    <!-- wp:column -->
-    <div class="wp-block-column">
-      <!-- wp:group {"style":{"border":{"radius":"12px","width":"1px","style":"solid","color":"#eee"},"spacing":{"padding":{"top":"20px","bottom":"20px","left":"20px","right":"20px"}}}} -->
-      <div class="wp-block-group" style="border:1px solid #eee;border-radius:12px;padding:20px">
-        <!-- wp:heading {"level":3} --><h3>AI Strategy</h3><!-- /wp:heading -->
-        <!-- wp:paragraph --><p>Roadmaps, ROI, and guardrails tailored to your org.</p><!-- /wp:paragraph -->
-      </div></div>
-    <!-- /wp:column -->
+		<!-- wp:paragraph {"fontSize":"lg"} -->
+		<p class="has-lg-font-size">We design and implement practical AI to improve speed, profit, and workflow — without the fluff.</p>
+		<!-- /wp:paragraph -->
 
-    <!-- wp:column -->
-    <div class="wp-block-column">
-      <div class="wp-block-group" style="border:1px solid #eee;border-radius:12px;padding:20px">
-        <h3>Automation</h3>
-        <p>Workflows, assistants, and integrations that save hours/day.</p>
-      </div></div>
-    <!-- /wp:column -->
+		<!-- wp:buttons -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"backgroundColor":"ink","textColor":"bg","style":{"border":{"radius":"999px"},"spacing":{"padding":{"top":"14px","bottom":"14px","left":"24px","right":"24px"}}}} -->
+			<div class="wp-block-button"><a class="wp-block-button__link has-bg-color has-ink-background-color has-text-color has-background wp-element-button" style="border-radius:999px;padding-top:14px;padding-right:24px;padding-bottom:14px;padding-left:24px">Free Discovery Workshop</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+	</div>
+	<!-- /wp:group -->
 
-    <!-- wp:column -->
-    <div class="wp-block-column">
-      <div class="wp-block-group" style="border:1px solid #eee;border-radius:12px;padding:20px">
-        <h3>Custom Models</h3>
-        <p>Fine-tuned models and retrieval that respect your data.</p>
-      </div></div>
-    <!-- /wp:column -->
-  </div>
-  <!-- /wp:columns -->
+	<!-- What we do -->
+	<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"40px"}}}} -->
+	<h2 class="wp-block-heading" style="margin-top:40px">What we do</h2>
+	<!-- /wp:heading -->
 
-  <!-- CTA -->
-  <!-- wp:group {"style":{"spacing":{"padding":{"top":"32px","bottom":"32px"},"margin":{"top":"56px"}},"border":{"radius":"12px"},"color":{"background":"#f7f7f7"}},"layout":{"type":"constrained"}} -->
-  <div class="wp-block-group" style="padding:32px;border-radius:12px;background:#f7f7f7">
-    <!-- wp:heading {"level":3} --><h3>Ready to move faster?</h3><!-- /wp:heading -->
-    <!-- wp:paragraph --><p>Book a 20-minute discovery and we’ll map the quickest wins.</p><!-- /wp:paragraph -->
-    <!-- wp:buttons --><div class="wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link">Book a Call</a></div></div><!-- /wp:buttons -->
-  </div>
-  <!-- /wp:group -->
-</div>
+	<!-- wp:group {"layout":{"type":"constrained","contentSize":"780px"}} -->
+	<div class="wp-block-group">
+		<!-- Card -->
+		<!-- wp:group {"style":{"border":{"radius":"16px"},"spacing":{"padding":{"top":"20px","bottom":"20px","left":"24px","right":"24px"},"blockGap":"8px"}},"backgroundColor":"muted"} -->
+		<div class="wp-block-group has-muted-background-color has-background" style="border-radius:16px;padding-top:20px;padding-right:24px;padding-bottom:20px;padding-left:24px">
+			<!-- wp:heading {"level":3} --><h3 class="wp-block-heading">AI Strategy</h3><!-- /wp:heading -->
+			<!-- wp:paragraph --> <p>Roadmaps, ROI, and guardrails tailored to your org.</p> <!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+
+</main>
 <!-- /wp:group -->
 
-<!-- wp:template-part {"slug":"footer"} /-->
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
