@@ -1,35 +1,20 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "$schema": "https://schemas.wp.org/wp/6.1/theme.json",
   "version": 2,
   "settings": {
     "typography": {
+      "customFontSize": true,
+      "dropCap": false,
       "fontFamilies": [
         {
           "fontFamily": "'Space Grotesk', sans-serif",
           "name": "Space Grotesk",
           "slug": "space-grotesk"
-        }
-      ],
-      "fontSizes": [
-        {
-          "slug": "small",
-          "size": "14px",
-          "name": "Small"
         },
         {
-          "slug": "normal",
-          "size": "16px",
-          "name": "Normal"
-        },
-        {
-          "slug": "large",
-          "size": "20px",
-          "name": "Large"
-        },
-        {
-          "slug": "x-large",
-          "size": "32px",
-          "name": "Extra Large"
+          "fontFamily": "sans-serif",
+          "name": "System Sans",
+          "slug": "system-sans"
         }
       ]
     }
@@ -37,20 +22,20 @@
   "styles": {
     "typography": {
       "fontFamily": "var(--wp--preset--font-family--space-grotesk)",
-      "fontSize": "var(--wp--preset--font-size--normal)",
-      "fontWeight": "400"
+      "lineHeight": 1.5
     },
     "elements": {
       "heading": {
         "typography": {
           "fontFamily": "var(--wp--preset--font-family--space-grotesk)",
-          "fontWeight": "600"
+          "fontWeight": "600",
+          "lineHeight": 1.2
         }
       },
       "paragraph": {
         "typography": {
           "fontFamily": "var(--wp--preset--font-family--space-grotesk)",
-          "fontWeight": "400"
+          "lineHeight": 1.5
         }
       }
     }
