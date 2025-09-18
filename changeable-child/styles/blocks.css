@@ -65,3 +65,20 @@ html, body {
 
 /* ==== Footer micro-brand line (optional gentle center) ==== */
 .site-footer p { text-align: center; font-size: .9rem; color: #666; }
+
+/* Hero photo + card positioning */
+.chg-hero-right { position: relative; }
+.chg-hero-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  display: block;
+}
+.chg-hero-card {
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+  transform: rotate(-3deg);
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+}
+
