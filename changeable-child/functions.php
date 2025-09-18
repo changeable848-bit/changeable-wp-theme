@@ -1,41 +1,59 @@
 <?php
 /**
- * Theme functions and definitions
+ * Changeable Child – functions
  */
-
-if ( ! function_exists( 'changeable_child_setup' ) ) {
-    function changeable_child_setup() {
-        // Add theme support features
-        add_theme_support( 'title-tag' );
-        add_theme_support( 'post-thumbnails' );
-        add_theme_support( 'editor-styles' );
-    }
-}
-add_action( 'after_setup_theme', 'changeable_child_setup' );
 
 /**
- * Enqueue styles and fonts
+ * Theme supports
  */
-function changeable_child_enqueue_styles() {
-    // Load parent theme stylesheet first (if this is a child theme)
-    if ( is_child_theme() ) {
-        wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+add_action('after_setup_theme', function () {
+    add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
+    add_theme_support('editor-styles'); // allow editor styles
+    // Load the same self-hosted font CSS in the editor
+    add_editor_style('assets/fonts/space-grotesk/space-grotesk.css');
+});
+
+/**
+ * Enqueue styles (parent → font → child)
+ */
+add_action('wp_enqueue_scripts', function () {
+    // Parent stylesheet (TT25)
+    if (is_child_theme()) {
+        wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css', [], null);
     }
 
-    // Load Google Fonts - Space Grotesk
+    // Self-hosted Space Grotesk (variable) – served via a small CSS file
     wp_enqueue_style(
-        'changeable-google-fonts',
-        'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap',
-        false,
+        'changeable-space-grotesk',
+        get_stylesheet_directory_uri() . '/assets/fonts/space-grotesk/space-grotesk.css',
+        [],
         null
     );
 
-    // Load child theme stylesheet
+    // Child stylesheet (depends on parent + font)
     wp_enqueue_style(
         'changeable-child-style',
         get_stylesheet_directory_uri() . '/style.css',
-        array( 'parent-style', 'changeable-google-fonts' ),
+        ['parent-style', 'changeable-space-grotesk'],
         wp_get_theme()->get('Version')
     );
-}
-add_action( 'wp_enqueue_scripts', 'changeable_child_enqueue_styles' );
+}, 20);
+
+/**
+ * Preload the variable font for faster paint
+ * (Works with ttf; switch to .woff2 when you convert)
+ */
+add_filter('wp_resource_hints', function ($hints, $relation_type) {
+    if ($relation_type !== 'preload') return $hints;
+
+    $font_url = get_stylesheet_directory_uri() . '/assets/fonts/space-grotesk/SpaceGrotesk-VariableFont_wght.ttf';
+
+    $hints[] = [
+        'href'        => $font_url,
+        'as'          => 'font',
+        'type'        => 'font/ttf', // change to 'font/woff2' if you upgrade
+        'crossorigin' => 'anonymous',
+    ];
+    return $hints;
+}, 10, 2);
