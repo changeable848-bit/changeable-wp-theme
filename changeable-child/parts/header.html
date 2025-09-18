@@ -1,16 +1,18 @@
-<!-- wp:group {"tagName":"header","style":{"spacing":{"padding":{"top":"16px","bottom":"16px","left":"24px","right":"24px"}},"border":{"bottom":{"color":"#eee","style":"solid","width":"1px"}}},"layout":{"type":"flex","justifyContent":"space-between","alignItems":"center"}} -->
-<header class="wp-block-group" style="padding:16px 24px;border-bottom:1px solid #eee;position:sticky;top:0;z-index:10;background:#fff;">
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"0.75rem","bottom":"0.75rem","left":"1rem","right":"1rem"}},"border":{"bottom":{"color":"#eaeaea","style":"solid","width":"1px"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group" style="border-bottom-color:#eaeaea;border-bottom-style:solid;border-bottom-width:1px;padding-top:0.75rem;padding-right:1rem;padding-bottom:0.75rem;padding-left:1rem">
+  <!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
+  <div class="wp-block-group">
+    <!-- wp:site-title {"level":0,"isLink":true} /-->
 
-	<!-- Logo -->
-	<!-- wp:site-logo {"width":40} /-->
-
-	<!-- Navigation -->
-	<!-- wp:navigation {"overlayMenu":"true","overlayBackgroundColor":"bg","overlayTextColor":"ink","layout":{"type":"flex","justifyContent":"right","orientation":"horizontal"},"style":{"typography":{"fontFamily":"var(--wp--preset--font-family--space-grotesk)","fontWeight":"500"}}} -->
-		<!-- wp:navigation-link {"label":"Home","url":"/","kind":"custom"} /-->
-		<!-- wp:navigation-link {"label":"Services","url":"/services","kind":"custom"} /-->
-		<!-- wp:navigation-link {"label":"Blog","url":"/blog","kind":"custom"} /-->
-		<!-- wp:navigation-link {"label":"Contact","url":"/contact","kind":"custom"} /-->
-	<!-- /wp:navigation -->
-
-</header>
+    <!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex"}} -->
+      <!-- wp:navigation-link {"label":"Home","url":"/","kind":"custom"} /-->
+      <!-- wp:navigation-link {"label":"Solutions","url":"/solutions/","kind":"custom"} /-->
+      <!-- wp:navigation-link {"label":"Portfolio","url":"/portfolio/","kind":"custom"} /-->
+      <!-- wp:navigation-link {"label":"Blog","url":"/blog/","kind":"custom"} /-->
+      <!-- wp:navigation-link {"label":"About","url":"/about/","kind":"custom"} /-->
+      <!-- wp:navigation-link {"label":"Contact","url":"/contact/","kind":"custom"} /-->
+    <!-- /wp:navigation -->
+  </div>
+  <!-- /wp:group -->
+</div>
 <!-- /wp:group -->
