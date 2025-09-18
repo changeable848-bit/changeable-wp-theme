@@ -1,47 +1,37 @@
 <!-- wp:template-part {"slug":"header","area":"header"} /-->
+<!-- wp:template-part {"slug":"hero"} /-->
 
-<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"60px","bottom":"60px"}}},"layout":{"type":"constrained","contentSize":"780px","wideSize":"1200px"}} -->
-<main class="wp-block-group" style="padding-top:60px;padding-bottom:60px">
+<!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"1rem","bottom":"2rem"}}}} -->
+<div class="wp-block-group" style="padding-top:1rem;padding-bottom:2rem">
+  <!-- wp:heading {"level":2} --><h2>Solutions</h2><!-- /wp:heading -->
+  <!-- wp:paragraph --><p>Pick a starting point. Every engagement ends with a clear, defensible business case and a path to shipping.</p><!-- /wp:paragraph -->
 
-	<!-- Hero -->
-	<!-- wp:group {"style":{"spacing":{"padding":{"top":"40px","bottom":"40px"},"blockGap":"20px"},"border":{"radius":"24px"}},"backgroundColor":"brand","layout":{"type":"constrained"}} -->
-	<div class="wp-block-group has-brand-background-color has-background" style="border-radius:24px;padding-top:40px;padding-bottom:40px">
-		<!-- wp:heading {"level":1,"fontSize":"3xl"} -->
-		<h1 class="wp-block-heading has-3-xl-font-size">Ai Agency in New Zealand</h1>
-		<!-- /wp:heading -->
-
-		<!-- wp:paragraph {"fontSize":"lg"} -->
-		<p class="has-lg-font-size">We design and implement practical AI to improve speed, profit, and workflow — without the fluff.</p>
-		<!-- /wp:paragraph -->
-
-		<!-- wp:buttons -->
-		<div class="wp-block-buttons">
-			<!-- wp:button {"backgroundColor":"ink","textColor":"bg","style":{"border":{"radius":"999px"},"spacing":{"padding":{"top":"14px","bottom":"14px","left":"24px","right":"24px"}}}} -->
-			<div class="wp-block-button"><a class="wp-block-button__link has-bg-color has-ink-background-color has-text-color has-background wp-element-button" style="border-radius:999px;padding-top:14px;padding-right:24px;padding-bottom:14px;padding-left:24px">Free Discovery Workshop</a></div>
-			<!-- /wp:button -->
-		</div>
-		<!-- /wp:buttons -->
-	</div>
-	<!-- /wp:group -->
-
-	<!-- What we do -->
-	<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"40px"}}}} -->
-	<h2 class="wp-block-heading" style="margin-top:40px">What we do</h2>
-	<!-- /wp:heading -->
-
-	<!-- wp:group {"layout":{"type":"constrained","contentSize":"780px"}} -->
-	<div class="wp-block-group">
-		<!-- Card -->
-		<!-- wp:group {"style":{"border":{"radius":"16px"},"spacing":{"padding":{"top":"20px","bottom":"20px","left":"24px","right":"24px"},"blockGap":"8px"}},"backgroundColor":"muted"} -->
-		<div class="wp-block-group has-muted-background-color has-background" style="border-radius:16px;padding-top:20px;padding-right:24px;padding-bottom:20px;padding-left:24px">
-			<!-- wp:heading {"level":3} --><h3 class="wp-block-heading">AI Strategy</h3><!-- /wp:heading -->
-			<!-- wp:paragraph --> <p>Roadmaps, ROI, and guardrails tailored to your org.</p> <!-- /wp:paragraph -->
-		</div>
-		<!-- /wp:group -->
-	</div>
-	<!-- /wp:group -->
-
-</main>
+  <!-- wp:shortcode -->[changeable_solutions_grid columns="3" limit="12"]<!-- /wp:shortcode -->
+</div>
 <!-- /wp:group -->
 
+<!-- wp:group {"layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"2rem","bottom":"2rem"}}}} -->
+<div class="wp-block-group" style="padding-top:2rem;padding-bottom:2rem">
+  <!-- wp:heading {"level":2} --><h2>Recent case studies</h2><!-- /wp:heading -->
+
+  <!-- wp:query {"queryId":2,"query":{"postType":"portfolio","perPage":3,"order":"desc","orderBy":"date","inherit":false},"displayLayout":{"type":"grid","columns":3}} -->
+  <div class="wp-block-query">
+    <!-- wp:post-template -->
+    <!-- wp:group {"style":{"border":{"radius":"var(--wp--custom--radius--lg)"},"color":{"background":"var(--wp--preset--color--cloud)"},"spacing":{"padding":{"top":"1rem","right":"1rem","bottom":"1.5rem","left":"1rem"}}}} -->
+    <div class="wp-block-group" style="border-radius:var(--wp--custom--radius--lg);background-color:var(--wp--preset--color--cloud);padding-top:1rem;padding-right:1rem;padding-bottom:1.5rem;padding-left:1rem">
+      <!-- wp:post-title {"isLink":true,"level":3} /-->
+      <!-- wp:post-excerpt {"moreText":"Read case study →"} /-->
+    </div>
+    <!-- /wp:group -->
+    <!-- /wp:post-template -->
+
+    <!-- wp:query-no-results -->
+    <!-- wp:paragraph --><p>No case studies yet — coming soon.</p><!-- /wp:paragraph -->
+    <!-- /wp:query-no-results -->
+  </div>
+  <!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"cta-free-discovery"} /-->
 <!-- wp:template-part {"slug":"footer","area":"footer"} /-->
