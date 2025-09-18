@@ -1,0 +1,24 @@
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"56px","bottom":"80px"}}},"layout":{"type":"constrained","contentSize":"780px","wideSize":"1200px"}} -->
+<main class="wp-block-group" style="padding-top:56px;padding-bottom:80px">
+	<!-- wp:heading {"level":1,"fontSize":"2xl"} --><h1 class="wp-block-heading has-2-xl-font-size">Work</h1><!-- /wp:heading -->
+	<!-- wp:paragraph {"style":{"color":{"text":"#6a6a6a"}}} -->
+	<p class="has-text-color" style="color:#6a6a6a">Selected projects and case studies.</p>
+	<!-- /wp:paragraph -->
+
+	<!-- wp:query {"query":{"perPage":12,"postType":"portfolio","order":"desc","orderBy":"date"},"displayLayout":{"type":"flex","columns":3},"layout":{"type":"constrained","contentSize":"1200px"},"style":{"spacing":{"margin":{"top":"24px"}}}} -->
+	<div class="wp-block-query" style="margin-top:24px">
+		<!-- wp:post-template -->
+		<!-- wp:group {"style":{"border":{"radius":"18px"},"spacing":{"blockGap":"12px","padding":{"top":"16px","right":"16px","bottom":"16px","left":"16px"}},"shadow":"0 6px 22px rgba(0,0,0,0.06)"},"backgroundColor":"bg"} -->
+		<div class="wp-block-group has-bg-background-color has-background" style="border-radius:18px;padding:16px;box-shadow:0 6px 22px rgba(0,0,0,0.06)">
+			<!-- wp:post-featured-image {"isLink":true,"style":{"border":{"radius":"14px"},"spacing":{"margin":{"bottom":"8px"}}}} /-->
+			<!-- wp:post-title {"isLink":true} /-->
+			<!-- wp:post-excerpt {"moreText":"View case study →"} /-->
+		</div>
+		<!-- /wp:group -->
+		<!-- /wp:post-template -->
+	</div>
+	<!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->
